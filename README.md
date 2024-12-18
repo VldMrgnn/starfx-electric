@@ -73,3 +73,49 @@ This proof of concept demonstrates how to integrate [Starfx](https://starfx.bowe
  by api -> parse to store.
  by api -> optimistic operations - insert, update, delete.
  -->
+## Some More Explanation
+
+**How it works:**  
+ElectricSQL pushes updates for the "shapes" we subscribe to.  
+These shapes represent portions of PostgreSQL tables (or materialized views).
+
+**Push Updates:**  
+These pushes are well-structured and follow a logical sequence. First, a “batch” of historical data is delivered, which is then used to initially populate the shape. After that, the shape on the client transitions into a "live" mode and begins receiving real-time updates. ElectricSQL manages this transition internally, providing significant value because synchronization can be more complex than it first appears.
+
+**Current Approach:**  
+For the initial setup, the `ThunkCtx` interface was extended with fields specific to ElectricSQL (as guided by their documentation). This extended type is then used for subscriptions:
+
+```typescript
+export interface EleCtx extends ThunkCtx {
+  table: string;
+  where?: string;
+  replica?: `full` | `default`;
+  columns?: string[];
+}
+```
+
+A middleware (`mdw-electric.ts`) has been introduced to leverage the shape subscriptions. This middleware remains active to continuously receive updates.
+
+**Bi-Directional Updates:**  
+Currently, ElectricSQL does not handle pushing updates back to the database. That responsibility remains on our side, handled via the standard Starfx API.
+
+**Synchronization Strategy:**  
+ElectricSQL suggests several synchronization strategies. Without committing fully to any predefined pattern, an optimistic update approach seems natural. To facilitate this, we need a local buffer of optimistic data that can be rolled back if necessary.
+
+In this setup, the Starfx "loaders" table is used as a straightforward solution. Loaders respond quickly to both success and failure, come with built-in metadata handling, and support the optimistic update pattern well. Any rollback logic is managed by the synchronization process itself.
+
+To support this, constants were defined for special loader keys, along with a simple but effective selector that prioritizes optimistic data over current data.
+
+**Looking Ahead:**  
+It may be more elegant to define an “electric” slice, for example:
+
+```typescript
+slice.electric({
+   shape: `users`,
+   columns: [`id`, `name`, `email`],
+   where: `active = true`,
+   replica: `full`
+})
+```
+
+With such a definition in place, the middleware could create subscriptions for all similarly defined slices, and pre-built thunks for CRUD operations could be introduced. Further consideration will be needed to determine when and how to start or stop these data streams.
