@@ -1,2 +1,3 @@
-export const CONST_STORE_BASE_NAME = "mystore";
-export const PERSIST_DATABASE_VERSION = 17;
+export const OPTI_ADDING = "adding";
+export const OPTI_REMOVING = "removing";
+export const OPTI_UPDATING = "updating";

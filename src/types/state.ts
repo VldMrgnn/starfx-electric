@@ -1,3 +1,7 @@
-import { initialState } from "../state/schema";
+import type { initialState } from "../state/schema";
 
-export type AppState = typeof initialState;
+export interface AppState extends Omit<typeof initialState, keyof any[]> {}
+export type IUser = {
+  id: number;
+  email: string;
+};

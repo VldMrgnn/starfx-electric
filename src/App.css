@@ -1,42 +1,221 @@
-#root {
-  max-width: 1280px;
+/* General Styles */
+.app-container {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
+  background-color: #2c2f33;
+  color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.app-header {
   text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  text-transform: capitalize;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Grid */
+.user-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grid-header {
+  font-weight: bold;
+  background: #3a3f45;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.grid-item {
+  padding: 10px;
+  background-color: #40454b;
+  border-radius: 4px;
+  overflow: hidden; /* Ensures no overflow from input */
 }
 
-.card {
-  padding: 2em;
+/* Input Fields */
+.grid-input {
+  padding: 10px;
+  width: 100%; /* Input takes up full width of its container */
+  box-sizing: border-box; /* Includes padding and borders in the width */
+  border: 1px solid #5a5f65;
+  background-color: #303437;
+  color: #f1f1f1;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-.read-the-docs {
-  color: #888;
+.grid-input:focus {
+  border-color: #7289da;
 }
+
+/* Add User Input */
+.add-user {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.add-input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #5a5f65;
+  background-color: #303437;
+  color: #f1f1f1;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.add-input:focus {
+  border-color: #7289da;
+}
+
+/* Buttons */
+.btn {
+  width: 100px; /* Ensure consistent button width */
+  padding: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-add {
+  background-color: #7289da;
+  color: #ffffff;
+}
+
+.btn-edit {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.btn-remove {
+  background-color: #e74c3c;
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+.btn-update {
+  background-color: #f39c12;
+  color: #ffffff;
+}
+
+/* Button Hover Effects */
+.btn:hover {
+  background-color: #5b6675; /* Subtle dark shade */
+}
+
+.btn-add:hover {
+  background-color: #5a72b8;
+}
+
+.btn-edit:hover {
+  background-color: #2c81c6;
+}
+
+.btn-remove:hover {
+  background-color: #d73a29;
+}
+
+
+
+/* .app-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.app-header {
+  text-align: center;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.user-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.grid-header {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.grid-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.grid-input {
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-user {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.add-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-add {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-edit {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-remove {
+  background-color: #dc3545;
+  color: white;
+  margin-left: 10px;
+}
+
+.btn-update {
+  background-color: #ffc107;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+} */

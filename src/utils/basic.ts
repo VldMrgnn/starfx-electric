@@ -145,3 +145,6 @@ export function ResultLikeToResult<T>(result: ResultLike<T>): Result<T> {
     return Err(new Error("unknown error"));
   }
 }
+
+export const ensureArray = (ar: unknown) =>
+  Array.isArray(ar) ? ar : [ar].filter((f) => f !== undefined);

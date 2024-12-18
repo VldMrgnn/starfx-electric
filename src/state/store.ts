@@ -1,21 +1,25 @@
-import { createPersistor, createStore, parallel, persistStoreMdw, take } from "starfx";
+import {
+  createLocalStorageAdapter,
+  createPersistor,
+  createStore,
+  parallel,
+  persistStoreMdw,
+  spawn,
+  take,
+} from "starfx";
 
-import { createSimpleIDBAdapter } from "../adapters/idb-simple";
-import { transform } from "../adapters/yjsAdapter";
-import { apis, thunks } from "./api";
-import { CONST_STORE_BASE_NAME } from "./constants";
+import { electricApi, electricThunks } from "./api";
 import { setupDevTool, subscribeToActions } from "./devtools";
 import { initialState } from "./schema";
+import { initializeFoo, initializeUsers } from "./thunks";
 
 const devtoolsEnabled = true;
-const lName = CONST_STORE_BASE_NAME;
 
 export type AppState = typeof initialState;
 
 const persistor = createPersistor<AppState>({
-  adapter: createSimpleIDBAdapter<AppState>(`p.${lName}`),
-  allowlist: ["test", "tableA"],
-  transform,
+  adapter: createLocalStorageAdapter<AppState>(),
+  allowlist: ["test", "tableA", "users"],
 });
 
 const store = createStore({
@@ -31,24 +35,23 @@ const tasks = [
       subscribeToActions({ action });
     }
   },
-  function* () {
-    while (true) {
-      const action = yield* take("YJS_UPDATE");
-      yield* store.update((s: AppState) => {
-        for (const [key, value] of Object.entries(action.payload as Record<string, any>)) {
-          // @ts-ignore
-          (s as any)[key] = value;
-        }
-      });
-    }
-  },
 ];
 
 export const setupState = (pName = "store") => {
   devtoolsEnabled && setupDevTool(store, { name: pName, enabled: true });
   store.run(function* () {
     yield* persistor.rehydrate();
-    const group = yield* parallel([thunks.bootup, apis.bootup, ...tasks]);
+    const group = yield* parallel([
+      electricThunks.bootup,
+      electricApi.bootup,
+      ...tasks,
+      function* () {
+        yield* spawn(() => initializeFoo.run());
+      },
+      function* () {
+        yield* spawn(() => initializeUsers.run());
+      },
+    ]);
     yield* group;
   });
   window.fx = store;

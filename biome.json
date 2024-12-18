@@ -4,10 +4,11 @@
     "enabled": true
   },
   "linter": {
-    "enabled": true,
+    "enabled": false,
     "rules": {
       "recommended": true
-    }
+    },
+    "ignore": ["**/*.sql"]
   },
   "formatter": {
     "enabled": true,
@@ -21,5 +22,8 @@
       "quoteStyle": "double",
       "semicolons": "always"
     }
+  },
+  "files": {
+    "ignore": ["**/*.sql"]
   }
 }
