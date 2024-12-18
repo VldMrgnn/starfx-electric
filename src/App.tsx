@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 
-import { IdProp } from 'starfx';
-import { useDispatch, useSelector } from 'starfx/react';
+import { IdProp } from "starfx";
+import { useDispatch, useSelector } from "starfx/react";
 
-import './App.css'; // Ensure you include the CSS below
-import { optimisticUsers } from './state/selectors';
-import { addUser, removeUser, updateUser } from './state/thunks';
-import { IUser } from './types';
+import "./App.css"; // Ensure you include the CSS below
+import { optimisticUsers } from "./state/selectors";
+import { addUser, removeUser, updateUser } from "./state/thunks";
+import { IUser } from "./types";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function App() {
     const email = emailRef.current!.value.trim();
     if (email) {
       dispatch(addUser({ email }));
-      emailRef.current!.value = '';
+      emailRef.current!.value = "";
     }
   };
 
@@ -79,12 +79,7 @@ function App() {
       </div>
 
       <div className="add-user">
-        <input
-          ref={emailRef}
-          className="add-input"
-          type="email"
-          placeholder="Enter new email"
-        />
+        <input ref={emailRef} className="add-input" type="email" placeholder="Enter new email" />
         <button className="btn btn-add" onClick={handleAddUser}>
           Add User
         </button>

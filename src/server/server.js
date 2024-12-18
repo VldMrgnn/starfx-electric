@@ -1,7 +1,7 @@
 import http from "http";
-import pg from "pg";
 import dotenv from "dotenv";
 import fs from "fs/promises";
+import pg from "pg";
 dotenv.config();
 
 const MIGRATION_SQL = `

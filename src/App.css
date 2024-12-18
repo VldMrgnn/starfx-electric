@@ -1,7 +1,7 @@
 /* General Styles */
 .app-container {
   padding: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   max-width: 900px;
   margin: 0 auto;
   background-color: #2c2f33;
@@ -131,8 +131,6 @@
 .btn-remove:hover {
   background-color: #d73a29;
 }
-
-
 
 /* .app-container {
   padding: 20px;

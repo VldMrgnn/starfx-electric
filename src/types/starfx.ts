@@ -1,10 +1,4 @@
-import type {
-  ActionWithPayload,
-  ApiCtx,
-  LoaderCtx,
-  ThunkCtx as OriginalThunkCtx,
-  Result,
-} from "starfx";
+import type { ActionWithPayload, LoaderCtx, ThunkCtx as OriginalThunkCtx, Result } from "starfx";
 
 export type { ApiCtx, Next, Result } from "starfx";
 

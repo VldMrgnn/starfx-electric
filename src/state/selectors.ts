@@ -1,8 +1,8 @@
-import { createSelector, IdProp } from 'starfx';
+import { IdProp, createSelector } from "starfx";
 
-import { IUser } from '../types';
-import { OPTI_ADDING, OPTI_REMOVING, OPTI_UPDATING } from './constants';
-import { schema } from './schema';
+import { IUser } from "../types";
+import { OPTI_ADDING, OPTI_REMOVING, OPTI_UPDATING } from "./constants";
+import { schema } from "./schema";
 
 export const optimisticUsers = createSelector(
   schema.users.selectTable,

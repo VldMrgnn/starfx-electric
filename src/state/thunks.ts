@@ -1,11 +1,16 @@
-import { takeEvery } from 'starfx';
+import { takeEvery } from "starfx";
 
-import { isOk } from '../utils/basic';
-import { electricApi, electricThunks } from './api';
-import { OPTI_ADDING, OPTI_REMOVING, OPTI_UPDATING } from './constants';
-import { schema } from './schema';
+import { electricApi, electricThunks } from "./api";
+import { OPTI_ADDING, OPTI_REMOVING, OPTI_UPDATING } from "./constants";
+import { schema } from "./schema";
 
+import type { Result } from "starfx";
 import type { ApiCtx, IUser, Next } from "../types";
+
+function isOk<T>(result: Result<T>): result is { readonly ok: true; value: T } {
+  return result.ok === true;
+}
+
 export const initializeFoo = electricThunks.create(
   "/foo",
   { supervisor: takeEvery },
