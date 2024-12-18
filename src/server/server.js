@@ -62,7 +62,6 @@ const routes = {
     "/users": async (req) => {
       const { email } = JSON.parse(await getRequestBody(req));
       const result = await db.query(`INSERT INTO users (email) VALUES ($1) RETURNING *`, [email]);
-      console.log("result", result);
       return { status: 200, body: result.rows[0] };
     },
     "/emails": async (req) => {
@@ -108,7 +107,7 @@ const routes = {
 
 // Create HTTP server
 const server = http.createServer(async (req, res) => {
-  console.log(req.method, req.url);
+  // console.log(req.method, req.url);
   try {
     // Handle CORS preflight requests
     if (req.method === "OPTIONS") {
