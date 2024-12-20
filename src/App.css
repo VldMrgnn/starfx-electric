@@ -37,11 +37,14 @@
 
 .grid-item {
   padding: 10px;
-  background-color: #40454b;
+  background-color: #40454b86;
   border-radius: 4px;
   overflow: hidden; /* Ensures no overflow from input */
 }
-
+.grid-item.buttons{
+  padding: 0px;
+  /* background-color: transparent; */
+}
 /* Input Fields */
 .grid-input {
   padding: 10px;
@@ -82,138 +85,90 @@
   border-color: #7289da;
 }
 
-/* Buttons */
-.btn {
-  width: 100px; /* Ensure consistent button width */
-  padding: 8px 0;
-  border: none;
+.demo-notes {
+  background-color: #3a3f4500;
+  padding: 15px;
+  margin-bottom: 20px;
   border-radius: 4px;
+  color:rgba(245, 245, 245, 0.5);
+}
+
+.demo-notes p,
+.demo-notes ul {
+  margin: 10px 0;
+}
+
+.demo-notes a {
+  color: #7289da;
+  text-decoration: none;
+}
+
+.demo-notes a:hover {
+  text-decoration: underline;
+}
+
+.button-container {
+  display: flex;
+  justify-content:space-evenly; /* Space buttons equally */
+  align-items: center; /* Align buttons vertically */
+  gap: 15px; /* Add consistent spacing between buttons */
+}
+/* General Button Styles */
+.btn {
+  width: 100px; /* Maintain consistent size */
+  height: 40px; /* Set equal height for buttons */
+  padding: 8px 0; /* Center the text vertically */
+  border: 2px solid transparent; /* Transparent outline */
+  background-color: transparent; /* Fully transparent background */
+  color: #7289da; /* Text color for all buttons */
+  border-radius: 10px; /* 20px = Fully rounded corners */
+  font-weight: bold; /* Make text bold */
+  text-align: center; /* Center text horizontally */
   cursor: pointer;
-  font-weight: bold;
-  text-align: center;
-  transition: background-color 0.2s, color 0.2s;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s; /* Smooth transitions */
 }
 
+/* Add Button Style */
 .btn-add {
-  background-color: #7289da;
-  color: #ffffff;
+  border-color: #7289da;
 }
 
+/* Edit Button Style */
 .btn-edit {
-  background-color: #3498db;
-  color: #ffffff;
+  border-color: #3498db;
 }
 
+/* Remove Button Style */
 .btn-remove {
-  background-color: #e74c3c;
-  color: #ffffff;
-  margin-left: 10px;
+  border-color: #e74d3c73;
 }
 
+/* Update Button Style */
 .btn-update {
-  background-color: #f39c12;
-  color: #ffffff;
+  border-color: #f39c12;
 }
 
-/* Button Hover Effects */
+/* Hover Effects */
 .btn:hover {
-  background-color: #5b6675; /* Subtle dark shade */
+  background-color: rgba(114, 137, 218, 0.1); /* Add light color fill on hover */
+  border-color: #7289da; /* Slightly darker on hover */
+  color: #7289da;
 }
 
 .btn-add:hover {
-  background-color: #5a72b8;
+  background-color: rgba(114, 137, 218, 0.1);
 }
 
 .btn-edit:hover {
-  background-color: #2c81c6;
+  background-color: rgba(52, 152, 219, 0.1);
 }
 
 .btn-remove:hover {
-  background-color: #d73a29;
+  border-color: #e74d3c;
+
+  background-color: rgba(231, 76, 60, 0.1);
 }
 
-/* .app-container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
+.btn-update:hover {
+  background-color: rgba(243, 156, 18, 0.1);
 }
-
-.app-header {
-  text-align: center;
-  color: #444;
-  margin-bottom: 20px;
-}
-
-.user-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.grid-header {
-  font-weight: bold;
-  background-color: #f0f0f0;
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-.grid-item {
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-.grid-input {
-  padding: 8px;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.add-user {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.add-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-add {
-  background-color: #28a745;
-  color: white;
-}
-
-.btn-edit {
-  background-color: #007bff;
-  color: white;
-}
-
-.btn-remove {
-  background-color: #dc3545;
-  color: white;
-  margin-left: 10px;
-}
-
-.btn-update {
-  background-color: #ffc107;
-  color: white;
-}
-
-.btn:hover {
-  opacity: 0.9;
-} */
