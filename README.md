@@ -30,13 +30,20 @@ This proof of concept demonstrates how to integrate [Starfx](https://starfx.bowe
    ```
 
 3. **Environment Variables**  
-   Create an `.env` file in the project root and define the following keys:
+   Create an `.env.development` file in the project root and define the following keys:
    ```env
-   DATABASE_URL=postgresql://<user>:<password>@<electricserver>:<port>/<database>
-   VITE_ELECTRIC_SERVICE=http://<electricserver>:3000/v1/shape
+   VITE_ELECTRIC_SERVICE=YOUR_ELECTRICSQL_SERVICE_URL
+   VITE_PROXY_URL=http://localhost:8033
    ```
-   
-   - **DATABASE_URL**: Points to your PostgreSQL instance managed by ElectricSQL.
+    Also create a `.env.production` file in the project root and define the following
+    ```env
+    VITE_ELECTRIC_SERVICE=YOUR_ELECTRICSQL_SERVICE_URL
+    VITE_PROXY_URL=https://yourdomain.com
+    ```
+
+    Replace `YOUR_ELECTRICSQL_SERVICE_URL` with the ElectricSQL service endpoint.
+
+   - **VITE_PROXY_URL**: Points to your Node.js server. The server setup is illustrated in the "/server/README.md" file.
    - **VITE_ELECTRIC_SERVICE**: Defines the service endpoint for ElectricSQL’s sync functionality.
 
 ## Running the Servers
