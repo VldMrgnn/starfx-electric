@@ -20,8 +20,8 @@ This proof of concept demonstrates how to integrate [Starfx](https://starfx.bowe
 
 1. **Clone the Repository**  
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/VldMrgnn/starfx-electric.git
+   cd starfx-electric
    ```
 
 2. **Install Dependencies**  
