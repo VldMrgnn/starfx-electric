@@ -15,6 +15,7 @@ export function electricMdw(baseUrl = "") {
       },
     });
 
+    console.log('shape', shape)
     shape.subscribe(async (messages: Message[]) => {
       const acts = messages.filter(isChangeMessage).map((message) => {
         const tableActions = schema[ctx.table as keyof AppState] as TableOutput<

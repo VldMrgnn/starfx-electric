@@ -1,11 +1,10 @@
-// import dotenv from 'dotenv';
-import { createApi, createThunks, mdw } from "starfx";
 
-import { createLog } from "./helpers";
-import { electricMdw } from "./mdw-electric";
-import { schema } from "./schema";
+import { createApi, createThunks, mdw } from 'starfx';
 
-// dotenv.config();
+import { createLog } from './helpers';
+import { electricMdw } from './mdw-electric';
+import { schema } from './schema';
+
 import type { ApiCtx, Next } from "starfx";
 import type { EleCtx, ThunkCtx } from "../types";
 
@@ -15,8 +14,8 @@ function* debugMdw(ctx: ThunkCtx | ApiCtx, next: Next) {
   yield* next();
 }
 
-const electricService = import.meta.env.VITE_ELECTRIC_SERVICE || "http://localhost:3000/v1/shape";
-const electricBackend = `http://localhost:3001`;
+const electricService = `${import.meta.env.VITE_ELECTRIC_SERVICE}/v1/shape`;
+const electricBackend = `${import.meta.env.VITE_PROXY_URL}/rest/api/elsfx`;
 
 export const electricThunks = createThunks<EleCtx>();
 electricThunks.use(debugMdw);

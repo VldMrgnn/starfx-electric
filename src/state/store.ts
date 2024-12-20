@@ -1,19 +1,13 @@
 import {
-  createLocalStorageAdapter,
-  createPersistor,
-  createStore,
-  parallel,
-  persistStoreMdw,
-  spawn,
-  take,
-} from "starfx";
+    createLocalStorageAdapter, createPersistor, createStore, parallel, persistStoreMdw, spawn, take
+} from 'starfx';
 
-import { electricApi, electricThunks } from "./api";
-import { setupDevTool, subscribeToActions } from "./devtools";
-import { initialState } from "./schema";
-import { initializeFoo, initializeUsers } from "./thunks";
+import { electricApi, electricThunks } from './api';
+import { setupDevTool, subscribeToActions } from './devtools';
+import { initialState } from './schema';
+import { initializeFoo, initializeUsers } from './thunks';
 
-const devtoolsEnabled = true;
+const devtoolsEnabled = process.env.NODE_ENV === "development";
 
 export type AppState = typeof initialState;
 

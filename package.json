@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "main": "src/server/server.js",
+   "proxy":"https://swiz.ro",
   "scripts": {
     "dev": "vite",
     "server": "npx nodemon src/server/server.js",
@@ -12,7 +12,8 @@
     "fmt": "./node_modules/.bin/biome format --write ./src",
     "lint": "biome check src/ --fix",
     "start": "node src/server/server.js",
-    "upload": "bash ./script/upload.sh"
+    "upload": "bash ./script/upload.sh",
+    "up2": "bash ./script/up2.sh"
   },
   "dependencies": {
     "@electric-sql/client": "^1.0.0-beta.1",
