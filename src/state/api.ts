@@ -1,9 +1,8 @@
+import { createApi, createThunks, mdw } from "starfx";
 
-import { createApi, createThunks, mdw } from 'starfx';
-
-import { createLog } from './helpers';
-import { electricMdw } from './mdw-electric';
-import { schema } from './schema';
+import { createLog } from "./helpers";
+import { electricMdw } from "./mdw-electric";
+import { schema } from "./schema";
 
 import type { ApiCtx, Next } from "starfx";
 import type { EleCtx, ThunkCtx } from "../types";

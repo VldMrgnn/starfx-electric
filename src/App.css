@@ -41,7 +41,7 @@
   border-radius: 4px;
   overflow: hidden; /* Ensures no overflow from input */
 }
-.grid-item.buttons{
+.grid-item.buttons {
   padding: 0px;
   /* background-color: transparent; */
 }
@@ -90,7 +90,7 @@
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 4px;
-  color:rgba(245, 245, 245, 0.5);
+  color: rgba(245, 245, 245, 0.5);
 }
 
 .demo-notes p,
@@ -109,7 +109,7 @@
 
 .button-container {
   display: flex;
-  justify-content:space-evenly; /* Space buttons equally */
+  justify-content: space-evenly; /* Space buttons equally */
   align-items: center; /* Align buttons vertically */
   gap: 15px; /* Add consistent spacing between buttons */
 }

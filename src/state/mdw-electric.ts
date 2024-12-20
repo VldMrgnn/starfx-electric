@@ -1,9 +1,9 @@
-import { IdProp, Next, TableOutput } from 'starfx';
+import { IdProp, Next, TableOutput } from "starfx";
 
-import { isChangeMessage, Message, ShapeStream } from '@electric-sql/client';
+import { Message, ShapeStream, isChangeMessage } from "@electric-sql/client";
 
-import { schema } from '../state/schema';
-import { AppState, EleCtx } from '../types';
+import { schema } from "../state/schema";
+import { AppState, EleCtx } from "../types";
 
 export function electricMdw(baseUrl = "") {
   return function* (ctx: EleCtx, next: Next) {
@@ -15,7 +15,7 @@ export function electricMdw(baseUrl = "") {
       },
     });
 
-    console.log('shape', shape)
+    console.log("shape", shape);
     shape.subscribe(async (messages: Message[]) => {
       const acts = messages.filter(isChangeMessage).map((message) => {
         const tableActions = schema[ctx.table as keyof AppState] as TableOutput<

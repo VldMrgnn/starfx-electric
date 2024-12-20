@@ -19,6 +19,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src/**/*", "!src/server/**/*"],
-  "exclude": ["node_modules", "**/*.sql"]
+  "exclude": ["node_modules", "**/*.sql", "server/**"]
 }
 
